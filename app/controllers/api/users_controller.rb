@@ -29,6 +29,15 @@ class Api::UsersController < ApplicationController
         end
     end
     
+    def update 
+        user = User.find(params[:id])
+        if user.update(user_params)
+            render json: user ,status: :ok
+        else
+            render json: user ,status: :unprocessable_entity
+        end
+    end
+    
     def search
         users = User.all
         serched_users=[]

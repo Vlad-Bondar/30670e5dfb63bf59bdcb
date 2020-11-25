@@ -11,4 +11,6 @@ class User
   field :email, type: String
 
   increments :_id
+
+  index({ _id: 1 }, { unique: true, name: "id_index" })
 end
